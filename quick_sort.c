@@ -1,0 +1,60 @@
+#include<stdio.h>
+#define N 100
+void quicksort(int a[],int low,int high)
+{
+    int pivot,start,end,temp=0;
+    if(low<high)
+    {
+        pivot=low;
+        start=low;
+        end=high;
+        while(start<end)
+        {
+            while(a[start]<=a[pivot])
+                start++;
+            while(a[end]>a[pivot])
+                end--;
+            if(start<end)
+            {
+                temp=a[start];
+                a[start]=a[end];
+                a[end]=temp;
+            }
+        }
+        temp=a[pivot];
+        a[pivot]=a[end];
+        a[end]=temp;
+        quicksort(a,low,end-1);
+        quicksort(a,end+1,high);
+    }
+}
+int main()
+{
+    int a[N],size,i;
+    printf("Enter the size of the array max. 100 : ");
+    scanf("%d",&size);
+    if(size>N)
+        printf("Please enter size 100 or less than 100!!");
+    else
+    {
+        printf("Enter array elements : \n");
+        for(i=0; i<size; i++)
+        {
+            scanf("%d",&a[i]);
+        }
+        printf("Array elements before sorting are : \n");
+        for(i=0; i<size; i++)
+        {
+            printf("%d ",a[i]);
+        }
+        printf("\n");
+        quicksort(a,0,size-1); //low=0,high=size-1
+        printf("Array elements after sorting are : \n");
+        for(i=0; i<size; i++)
+        {
+            printf("%d ",a[i]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
