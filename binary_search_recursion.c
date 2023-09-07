@@ -2,10 +2,9 @@
 #define N 100
 int binary(int a[],int search,int low,int high)
 {
-    int mid;
     while(low<=high)
         {
-            mid=(low+high)/2;
+            int mid=low+(high-low)/2;
             if(search==a[mid])
                 return mid;
             else if(search<a[mid])
@@ -13,6 +12,7 @@ int binary(int a[],int search,int low,int high)
             else
                 return binary(a,search,mid+1,high);
         }
+    return -1;
 }
 int main()
 {
@@ -23,7 +23,7 @@ int main()
         printf("Please enter size 100 or less than 100!!");
     else
     {
-        printf("Enter array elements : \n");
+        printf("Enter array elements in ascending order(sorted order): \n");
         for(i=0; i<size; i++)
         {
             scanf("%d",&a[i]);
@@ -41,7 +41,7 @@ int main()
         if(mid!=-1)
             printf("ELement %d is at position %d in the array\n",search,mid+1);
         else
-            printf("Element %d is not present in the array!!!",search);
+            printf("Element %d is not present in the array!!!\n",search);
     }
     return 0;
 }
