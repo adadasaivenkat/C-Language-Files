@@ -24,7 +24,7 @@ void quicksort(int a[],int low,int high)
         temp=a[pivot];
         a[pivot]=a[end];
         a[end]=temp;
-        quicksort(a,low,end-1);
+        quicksort(a,low,end-1);          //Recursively sort the left and right subarrays
         quicksort(a,end+1,high);
     }
 }
@@ -34,7 +34,7 @@ int main()
     printf("Enter the size of the array max. 100 : ");
     scanf("%d",&size);
     if(size>N)
-        printf("Please enter size 100 or less than 100!!");
+        printf("Array size should be between 1 and 100!");
     else
     {
         printf("Enter array elements : \n");
@@ -48,7 +48,7 @@ int main()
             printf("%d ",a[i]);
         }
         printf("\n");
-        quicksort(a,0,size-1); //low=0,high=size-1
+        quicksort(a,0,size-1); //low=0, high=size-1
         printf("Array elements after sorting are : \n");
         for(i=0; i<size; i++)
         {
