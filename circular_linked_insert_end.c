@@ -10,7 +10,10 @@ void print(struct node *head)
 {
     struct node *temp;
     if(head==NULL)
-    printf("List is empty!!\n");
+    {
+        printf("List is empty!!\n");
+        return;
+    }
     /*else
     {
         printf("Circular linked list : ");
