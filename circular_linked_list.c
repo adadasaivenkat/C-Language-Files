@@ -28,7 +28,9 @@ int main()
         temp->next=head;    //Link the last node to the head to make it circular.
     }
     if(head==NULL)
+    {
         printf("List is empty!!\n");
+    }
     /*else
     {
         printf("Circular linked list : ");
