@@ -46,9 +46,8 @@ int main()
     int n,i;
     printf("Enter the number of non-sparse terms : ");
     scanf("%d",&n);
-    struct sparse_poly *head, *temp, *ns_term;  //ns_term=non sparse term
+    struct sparse_poly *head, *ns_term;  //ns_term=non sparse term
     head=NULL;
-    temp=NULL;
     for(i=0; i<n; i++)
     {
         ns_term=(struct sparse_poly *)malloc(sizeof(struct sparse_poly));
