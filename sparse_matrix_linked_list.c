@@ -25,7 +25,7 @@ void print_list(struct sparse_matrix *head)
     }
     printf("NULL\n"); // Print "NULL" to indicate the end of the list
 }
-void print_matrix(int row, int column, struct sparse_matrix *head)
+/*void print_matrix(int row, int column, struct sparse_matrix *head)
 {
     struct sparse_matrix *temp;
     temp=head;
@@ -51,6 +51,28 @@ void print_matrix(int row, int column, struct sparse_matrix *head)
         }
         printf("\n");
     }
+}*/
+void print_matrix(int row, int column, struct sparse_matrix *head)
+{
+    struct sparse_matrix *temp;
+    temp=head;
+    int i,j;
+    for(i=0; i<row; i++)
+    {
+        for(j=0; j<column; j++)
+        {
+            if(temp!=NULL && temp->row==i && temp->column==j)
+            {
+                printf("%d\t",temp->value);
+                temp=temp->next;
+            }
+            else
+            {
+                printf("0\t");
+            }
+        }
+        printf("\n");
+    }            
 }
 void free_list(struct sparse_matrix *head)
 {
