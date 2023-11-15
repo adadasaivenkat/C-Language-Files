@@ -63,9 +63,12 @@ struct node *delete_after(struct node *head)
                 after=NULL;
                 return head;
             }
-            else
+            else       // Here, else means it will be executed when (after==head)
             {
-                printf("There is no element after %d to delete!\n", ele);
+                temp->next=head->next;
+                head=head->next;    // head=temp->next;  // Update head if the element to be deleted is the first element
+                free(after);
+                after=NULL;
                 return head;
             }
         }
