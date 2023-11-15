@@ -82,9 +82,19 @@ struct node *delete_before(struct node *head)
                     return head;
                 }
             }
-            else
+            else                // Here, else means it will be executed when element is the head...
             {
-                printf("There is no element before %d to delete!\n", ele);
+                struct node *e, *e_before;      // Here, 'e' means 'end'... 'end' is already used above so taken a variable 'e'...
+                e=head;
+                e_before=NULL;
+                while(e->next!=head)
+                {
+                    e_before=e;
+                    e=e->next;
+                }
+                e_before->next=head;
+                free(e);
+                e=NULL;
                 return head;
             }
         }
